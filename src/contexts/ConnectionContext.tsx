@@ -52,9 +52,12 @@ export function useLocalStorageState<T>(
     console.debug('Querying local storage', key);
     const storedState = localStorage.getItem(key);
     console.debug('Retrieved local storage', storedState);
-    if (storedState) {
-      return JSON.parse(storedState);
-    }
+    try {
+      if (storedState) {
+        return JSON.parse(storedState);
+      }
+    } catch {}
+    
     return defaultState;
   });
 

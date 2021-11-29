@@ -41,7 +41,7 @@ import { sha256 } from "js-sha256";
 import BN from "bn.js";
 import * as bs58 from "bs58";
 
-import { useConnection } from "../contexts";
+import { ModalEnum, useConnection, useModal, useWalletModal } from "../contexts";
 import {
   CANDY_MACHINE_ID,
   GUMDROP_DISTRIBUTOR_ID,
@@ -662,6 +662,8 @@ type ClaimTransactions = {
 export const Claim = (props: RouteComponentProps<ClaimProps>) => {
   const connection = useConnection();
   const wallet = useWallet();
+  const { setModal } = useModal();
+  const { setVisible } = useWalletModal();
 
   let query = props.location.search;
   if (query && query.length > 0) {
@@ -727,6 +729,12 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
 
   const [editable, setEditable] = React.useState(!allFieldsPopulated);
 
+  const handleConnect = React.useCallback(() => {
+    setModal(ModalEnum.WALLET);
+    setVisible(true);
+  }, [setModal, setVisible]);
+
+
   // temporal verification
   const [transaction, setTransaction] =
     React.useState<ClaimTransactions | null>(null);
@@ -763,7 +771,10 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
     e.preventDefault();
 
     if (!wallet.connected || wallet.publicKey === null) {
-      throw new Error(`Wallet not connected`);
+
+      handleConnect();
+      return;
+      // throw new Error(`Wallet not connected`);
     }
 
     const index = Number(indexStr);
@@ -804,6 +815,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
     let instructions, pdaSeeds, extraSigners;
     if (claimMethod === "candy") {
       console.log("Building candy claim");
+      debugger
       [instructions, pdaSeeds, extraSigners] = await buildCandyClaim(
         connection,
         wallet.publicKey,
@@ -1397,7 +1409,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
 
   const stepper = (
     <React.Fragment>
-      <Stepper activeStep={stepToUse}>
+      {/* <Stepper activeStep={stepToUse}>
         {steps.map((s) => {
           return (
             <Step key={s.name}>
@@ -1406,7 +1418,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
           );
         })}
       </Stepper>
-      <Box />
+      <Box /> */}
     </React.Fragment>
   );
 
