@@ -16,7 +16,7 @@ import {
   TokenListProvider,
   ENV as ChainId,
 } from "@solana/spl-token-registry";
-import { WalletSigner } from "./WalletContext/WalletContext";
+// import { WalletSigner } from "./WalletContext/WalletContext";
 import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
 import { getLocalStorage } from "./AccountContext";
 
@@ -225,7 +225,7 @@ export enum SequenceType {
 
 export const sendTransactionWithRetry = async (
   connection: Connection,
-  wallet: WalletSigner,
+  wallet: any,
   instructions: TransactionInstruction[],
   signers: Keypair[],
   commitment: Commitment = "singleGossip",

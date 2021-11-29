@@ -201,7 +201,7 @@ export const WalletProvider: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-export type WalletSigner = Pick<
-  WalletAdapter,
-  "publicKey" | "signTransaction" | "signAllTransactions"
->;
+// export type WalletSigner = Pick<
+//   WalletAdapter,
+//   "publicKey" | "signTransaction" | "signAllTransactions"
+// >;
