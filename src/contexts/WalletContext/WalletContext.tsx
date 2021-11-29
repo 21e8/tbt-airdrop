@@ -1,4 +1,4 @@
-import { WalletAdapter, WalletError } from "@solana/wallet-adapter-base";
+import { WalletError } from "@solana/wallet-adapter-base";
 import {
   useWallet,
   WalletProvider as BaseWalletProvider,
