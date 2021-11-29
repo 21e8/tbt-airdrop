@@ -25,4 +25,4 @@ export const ColorModeContextProvider = ({ children = undefined } : { children :
 export const useColorMode = (): any => {
   const context = useContext(ColorModeContext);
   return context;
-};
+ };
