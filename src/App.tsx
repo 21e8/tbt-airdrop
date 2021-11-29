@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//@ts-ignore
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
