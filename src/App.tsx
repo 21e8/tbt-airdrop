@@ -14,9 +14,9 @@ const claims: { handle: string; amount: number, url: string }[] = [
   {
     "handle": "guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK",
     "amount": 100,
-    "url": "https://tbt-airdrop.vercel.app/claim?distributor=7njfX7mJRmfxNrFHAkJjgTU8hxAKKYcGa2Sf9Zxjamxg&method=wallets&handle=guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK&amount=100&index=0&proof=&pin=NA&tokenAcc=FXGsJKGrvbTpXEPuv9Gb9vn1yKMAWFp7sNX6QjYTxZ8a"
+    "url": "https://tbt-airdrop.vercel.app/claim?distributor=Drdo9wpHvJUvUGK3aA7HSGcq9vgfQMCppiRigTYCT8L7&method=wallets&handle=guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK&amount=100&index=0&proof=&pin=NA&tokenAcc=FXGsJKGrvbTpXEPuv9Gb9vn1yKMAWFp7sNX6QjYTxZ8a"
   }
-];
+]
 
 const FindClaim = () => {
   const [found, setFound] = useState<{ handle: string; amount: number, url: string }[]>([]);
