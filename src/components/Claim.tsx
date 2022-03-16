@@ -1237,7 +1237,6 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
                   setTransaction(transaction);
                 }
                 setLoading(false);
-                verifyOTP();
               } catch (err) {
                 notify({
                   message: "Claim failed",
