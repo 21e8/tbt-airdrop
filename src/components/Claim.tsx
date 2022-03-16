@@ -1363,7 +1363,6 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
                     setTransaction(transaction);
                   }
                   setLoading(false);
-                  onClick();
                 } catch (err) {
                   notify({
                     message: "Claim failed",
