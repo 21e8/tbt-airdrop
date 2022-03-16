@@ -13,10 +13,20 @@ import { Claim } from './components/Claim';
 const claims: { handle: string; amount: number, url: string }[] = [
   {
     "handle": "guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK",
-    "amount": 100,
+    "amount": 50,
+    "url": "https://tbt-airdrop.vercel.app/claim?distributor=Drdo9wpHvJUvUGK3aA7HSGcq9vgfQMCppiRigTYCT8L7&method=wallets&handle=guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK&amount=50&index=0&proof=&pin=NA&tokenAcc=FXGsJKGrvbTpXEPuv9Gb9vn1yKMAWFp7sNX6QjYTxZ8a"
+  },
+  {
+    "handle": "GoV8U9c4hjCjeosW1VKsDuRTfUe96sUPAC5RyUbstpUt",
+    "amount": 25,
+    "url": "https://tbt-airdrop.vercel.app/claim?distributor=Drdo9wpHvJUvUGK3aA7HSGcq9vgfQMCppiRigTYCT8L7&method=wallets&handle=guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK&amount=100&index=0&proof=&pin=NA&tokenAcc=FXGsJKGrvbTpXEPuv9Gb9vn1yKMAWFp7sNX6QjYTxZ8a"
+  },
+  {
+    "handle": "guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK",
+    "amount": 25,
     "url": "https://tbt-airdrop.vercel.app/claim?distributor=Drdo9wpHvJUvUGK3aA7HSGcq9vgfQMCppiRigTYCT8L7&method=wallets&handle=guntXfLJzkewRM7eyvLSBQhRhiNGoGYZxybkDubF7uK&amount=100&index=0&proof=&pin=NA&tokenAcc=FXGsJKGrvbTpXEPuv9Gb9vn1yKMAWFp7sNX6QjYTxZ8a"
   }
-]
+];
 
 const FindClaim = () => {
   const [found, setFound] = useState<{ handle: string; amount: number, url: string }[]>([]);
