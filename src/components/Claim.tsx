@@ -1213,7 +1213,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
     }
   };
 
-  const populateClaimC = (onClick) => (
+  const PopulateClaimC = () => (
     <>
       <Box sx={{ width: "100%", maxWidth: 500 }}>
         <Typography style={{ fontSize: 32 }}>TBT Airdrop claim</Typography>
@@ -1237,7 +1237,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
                   setTransaction(transaction);
                 }
                 setLoading(false);
-                onClick();
+                verifyOTP();
               } catch (err) {
                 notify({
                   message: "Claim failed",
@@ -1383,29 +1383,29 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
     </>
   );
 
-  const steps = [{ name: "Populate Claim", inner: populateClaimC }];
-  if (asyncNeedsTemporalSigner) {
-    steps.push({ name: "Verify OTP", inner: verifyOTPC });
-  }
+  // const steps = [{ name: "Populate Claim", inner: populateClaimC }];
+  // if (asyncNeedsTemporalSigner) {
+  //   steps.push({ name: "Verify OTP", inner: verifyOTPC });
+  // }
 
   // TODO: better interaction between setting `asyncNeedsTemporalSigner` and
   // the stepper... this is pretty jank
-  const [activeStep, setActiveStep] = React.useState(0);
-  const stepToUse = Math.min(activeStep, steps.length - 1);
+  // const [activeStep, setActiveStep] = React.useState(0);
+  // const stepToUse = Math.min(activeStep, steps.length - 1);
 
-  const handleNext = () => {
-    // return to start if going past the end (claim succeeded)
-    setActiveStep((prev) => {
-      if (prev === steps.length - 1) {
-        return 0;
-      } else {
-        return prev + 1;
-      }
-    });
-  };
-  const handleBack = () => {
-    setActiveStep((prev) => prev - 1);
-  };
+  // const handleNext = () => {
+  //   // return to start if going past the end (claim succeeded)
+  //   setActiveStep((prev) => {
+  //     if (prev === steps.length - 1) {
+  //       return 0;
+  //     } else {
+  //       return prev + 1;
+  //     }
+  //   });
+  // };
+  // const handleBack = () => {
+  //   setActiveStep((prev) => prev - 1);
+  // };
 
   const stepper = (
     <React.Fragment>
@@ -1424,13 +1424,7 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
 
   return (
     <Stack spacing={2}>
-      {asyncNeedsTemporalSigner && stepper}
-      {steps[stepToUse].inner(handleNext)}
-      {stepToUse > 0 && (
-        <Button color="info" onClick={handleBack}>
-          Back
-        </Button>
-      )}
+      <PopulateClaimC  />
     </Stack>
   );
 };
