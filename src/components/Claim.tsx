@@ -1212,14 +1212,18 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
       );
     }
   };
-
-  const PopulateClaimC = () => (
-    <>
-      <Box sx={{ width: "100%", maxWidth: 500 }}>
-        <Typography style={{ fontSize: 32 }}>TBT Airdrop claim</Typography>
+  return (
+    <Stack spacing={2}>
+     <Box sx={{ width: "100%", maxWidth: 500 }}>
+        <Typography style={{ fontSize: 32 }}>CryptoStraps Airdrop Claim</Typography>
         <br />
-        <img
-          src="https://arweave.net/-VRWcc81ItYxroAeFo5MGMSTpGj7u-uDANp4lgD7WWM"
+        <video
+          poster="https://csnft.sfo3.digitaloceanspaces.com/lootbox/loot.jpg"
+          src="https://csnft.sfo3.digitaloceanspaces.com/lootbox/loot.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           onClick={(e) => {
             setLoading(true);
             const wrap = async () => {
@@ -1247,7 +1251,6 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
             };
             wrap();
           }}
-          alt="Animation"
           style={{
             width: 480,
             height: 480,
@@ -1257,7 +1260,10 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
         />
         <br />
         <br />
-        <Typography style={{ fontSize: 32 }}>Click image to claim!</Typography>
+        <div style={{textAlign: 'left'}}>
+          <Typography style={{ fontSize: 24 }}>1. Click image to claim mint tokens!</Typography>
+          <Typography style={{ fontSize: 24 }}>2. Then go to mint site and mint as many airdrops as you minted CryptoStraps!</Typography>
+        </div>
         <a href="/find">
           <Typography style={{ fontSize: 32 }}>
             Find your claim link!
@@ -1378,51 +1384,6 @@ export const Claim = (props: RouteComponentProps<ClaimProps>) => {
           {loading && loadingProgress()}
         </Box>
       </div>
-    </>
-  );
-
-  // const steps = [{ name: "Populate Claim", inner: populateClaimC }];
-  // if (asyncNeedsTemporalSigner) {
-  //   steps.push({ name: "Verify OTP", inner: verifyOTPC });
-  // }
-
-  // TODO: better interaction between setting `asyncNeedsTemporalSigner` and
-  // the stepper... this is pretty jank
-  // const [activeStep, setActiveStep] = React.useState(0);
-  // const stepToUse = Math.min(activeStep, steps.length - 1);
-
-  // const handleNext = () => {
-  //   // return to start if going past the end (claim succeeded)
-  //   setActiveStep((prev) => {
-  //     if (prev === steps.length - 1) {
-  //       return 0;
-  //     } else {
-  //       return prev + 1;
-  //     }
-  //   });
-  // };
-  // const handleBack = () => {
-  //   setActiveStep((prev) => prev - 1);
-  // };
-
-  const stepper = (
-    <React.Fragment>
-      {/* <Stepper activeStep={stepToUse}>
-        {steps.map((s) => {
-          return (
-            <Step key={s.name}>
-              <StepLabel>{s.name}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-      <Box /> */}
-    </React.Fragment>
-  );
-
-  return (
-    <Stack spacing={2}>
-      <PopulateClaimC  />
     </Stack>
   );
 };
